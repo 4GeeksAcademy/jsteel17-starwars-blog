@@ -1,16 +1,32 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import React, { useContext } from "react";
+import { StarWarsContext } from "../store/StarWarsContext";
+import Card from "../components/Card";
 
-export const Home = () => {
+const Home = () => {
+    const { people, vehicles, planets } = useContext(StarWarsContext);
 
-  const {store, dispatch} =useGlobalReducer()
+    return (
+        <div className="container mt-4">
+            <h2 className="text-danger">Characters</h2>
+            <div className="overflow-auto pb-2">
+                <div className="d-flex flex-row">
+                    {people.map(p => <Card key={p.uid} item={p} type="people" />)}
+                </div>
+            </div>
+            <h2 className="text-danger mt-4">Vehicles</h2>
+            <div className="overflow-auto pb-2">
+                <div className="d-flex flex-row">
+                    {vehicles.map(v => <Card key={v.uid} item={v} type="vehicles" />)}
+                </div>
+            </div>
+            <h2 className="text-danger mt-4">Planets</h2>
+            <div className="overflow-auto pb-2">
+                <div className="d-flex flex-row">
+                    {planets.map(pl => <Card key={pl.uid} item={pl} type="planets" />)}
+                </div>
+            </div>
+        </div>
+    );
+};
 
-	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-		</div>
-	);
-}; 
+export default Home;

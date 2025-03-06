@@ -1,0 +1,22 @@
+.overflow-auto {
+    white-space: nowrap; /* Prevents cards from stacking */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
+
+.overflow-auto::-webkit-scrollbar {
+    height: 8px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
